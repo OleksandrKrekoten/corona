@@ -4,7 +4,7 @@
 *::after {
   padding: 0;
   margin: 0;
-  border: ;
+  border:0;
   box-sizing: border-box;
 }
 a {
@@ -134,12 +134,22 @@ body {
   left: +100%;
   width: 100%;
   height: 100%;
+  overflow: auto;
   background-color: #ffffff;
-  padding: 90px 15px 30px 15px ;
+  padding: 120px 15px 30px 15px ;
   transition: left 0.3s ease 0s;
 }
-.menu__body:target{
+.header:target .menu__body{
   left: 0;
+}
+.header:target .menu__body::before{
+  content: "" ;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  background-color: #ffffff;
 }
 .menu__item{
   margin: 0px 0px 25px 0px ;
@@ -163,6 +173,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 
 }
 
@@ -199,11 +210,12 @@ body {
   background-color: #0a57d4;
 }
 /* burger button */
+.close_icon__menu,
 .icon__menu {
   display: none;
 }
 @media (max-width:767.98px) {
-  .close_icon__menu,
+ 
   .icon__menu {
     display: flex;
     position: relative;
@@ -224,17 +236,67 @@ body {
     height: 2px;
     background-color: #EC5863;
   }
-   .close_icon__menu::before,
+  .close_icon__menu{
+    
+    flex: 0 0 30px;
+    height: 30px;
+    position: relative;
+    margin: 0px 0px 0px 20px;
+  }
+  .close_icon__menu::before,
   .close_icon__menu::after{
-   content: "";
-    background-color: #EC5863;
-    height: 2px; 
-    transform-origin: 0 0;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  background-color: #EC5863;
+  height: 2px;
+  
   }
   .close_icon__menu::before{
-    transform:rotate(35deg)
+    transform:rotate(-45deg)
   }
   .close_icon__menu::after{
-    transform:rotate(-32deg)
+    transform:rotate(45deg) 
+  }
+  .header:target .icon__menu{
+    display: none;
+  }
+  .header:target .close_icon__menu{
+    display: flex;
   }
 }
+/* -------------------------------------------- */
+.get-started{
+  background-color: #FAFBFD;
+  padding: 150px 0px 50px 0px;
+}
+.get-started__container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.get-started__content{
+  flex: 0 1 48%;
+  padding: 0px 0px 0px 20px;
+}
+.get-started__block-text{}
+.block-text__title{}
+.health-title{}
+.block-text__button {}
+.get-started__video{
+  flex: 1 1 100%;
+  margin: 0px 0px 0px 20px;
+  
+}
+.video-icon{}
+.video-get-started__body{}
+.video-get-started__title{}
+.video-get-started__text{}
+.get-started__images{
+  flex: 0 1 52%;
+}
+.get-started__images img {
+  max-width: 100%;
+}
+
